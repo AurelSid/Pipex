@@ -6,7 +6,7 @@
 /*   By: asideris <asideris@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 21:03:54 by roko              #+#    #+#             */
-/*   Updated: 2024/06/28 14:52:21 by asideris         ###   ########.fr       */
+/*   Updated: 2024/07/17 17:16:19 by asideris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,6 @@ int main(int argc, char **argv, char **env)
     }
     dup2(outfd, 1);
     ft_get_exec(env, argv[argc - 2]); 
+    system("leaks a.out");
     return (0);
 }
