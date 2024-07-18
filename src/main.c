@@ -6,7 +6,7 @@
 /*   By: asideris <asideris@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 21:03:54 by roko              #+#    #+#             */
-/*   Updated: 2024/07/18 14:42:05 by asideris         ###   ########.fr       */
+/*   Updated: 2024/07/18 19:02:06 by asideris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,15 @@ int	open_files(int argc, char **argv, int *infd, int *outfd)
 	}
 }
 
-#include "../pipex.h"
-
 int	main(int argc, char **argv, char **env)
 {
-	int infd, outfd, i, j;
+	int	infd;
+	int	outfd;
+	int	i;
+	int	j;
+
 	j = open_files(argc, argv, &infd, &outfd);
-	i = j;
+	i = 0;
 	while (j < argc - 1)
 	{
 		ft_check_access(env, argv[j]);
@@ -78,5 +80,6 @@ int	main(int argc, char **argv, char **env)
 	}
 	dup2(outfd, 1);
 	ft_get_exec(env, argv[argc - 2]);
+	system("leaks pipex");
 	return (0);
 }

@@ -10,8 +10,8 @@ GNL_DIR             = get_next_line/
 
 # Compiler and CFlags
 CC                  = gcc
-CFLAGS              = -Wall -Werror -Wextra  -MMD -g 
-RM                  = rm -f
+CFLAGS              = -Wall -Werror -Wextra  -MMD -g -fsanitize=address
+RM                  = rm -f 
 
 # Additional flags
 INCLUDES            = -I /usr/local/include

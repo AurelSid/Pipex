@@ -6,7 +6,7 @@
 /*   By: asideris <asideris@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 14:16:51 by roko              #+#    #+#             */
-/*   Updated: 2024/07/18 13:47:32 by asideris         ###   ########.fr       */
+/*   Updated: 2024/07/18 18:57:32 by asideris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ char	**ft_find_path(char **env)
 
 char	*ft_get_exec(char **env, char *cmd)
 {
-	char **all_paths;
-	int i;
-	char *cmd_path;
-	char **cmd_split;
-	char *cmd_name;
+	char	**all_paths;
+	int		i;
+	char	*cmd_path;
+	char	**cmd_split;
+	char	*cmd_name;
 
 	i = 0;
 	cmd_split = ft_split(cmd, ' ');
@@ -59,8 +59,8 @@ char	*ft_get_exec(char **env, char *cmd)
 			printf("exe error");
 		else
 			printf("exe ok");
-
 		i++;
 	}
+	free(cmd_split);
 	return (cmd_path);
 }
