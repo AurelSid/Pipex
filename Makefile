@@ -1,5 +1,5 @@
 # Standard
-NAME                = Pipex
+NAME                = pipex
 
 # Directories
 LIBFT               = ./libft/libft.a
@@ -10,12 +10,8 @@ GNL_DIR             = get_next_line/
 
 # Compiler and CFlags
 CC                  = gcc
-CFLAGS              = -Wall -Werror -Wextra  -MMD -g -fsanitize=address
+CFLAGS              = -Wall -Werror -Wextra
 RM                  = rm -f 
-
-# Additional flags
-INCLUDES            = -I /usr/local/include
-LIBRARIES           = -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit 
 
 # Source files
 SRCS                = main.c  here_doc.c find_execs.c check_access.c
@@ -28,6 +24,7 @@ OBJ                 = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o) $(GNL_SRCS:.c=.o))
 DEPS                = $(OBJ:.o=.d)
 
 all:                $(NAME)
+bonus:                $(NAME)
 
 $(LIBFT):
 	@echo "Compiling libft..."
@@ -43,19 +40,19 @@ obj:
 	fi
 
 $(NAME): $(LIBFT) obj $(OBJ)
-	@echo "Compiling so_long..."
-	$(CC) $(CFLAGS) $(INCLUDES) $(OBJ) $(LIBFT) -o $(NAME) $(LIBRARIES)
+	@echo "Compiling pipex..."
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 	@echo "\033[1;32mDone.\033[0m"
 
 # Compile object files from source files
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(@D)
-	@$(CC) $(CFLAGS) -I$(INC) $(INCLUDES) -c $< -o $@
+	@$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
 	@echo "\033[1;32mFile $@ created.\033[0m";
 
 $(OBJ_DIR)/%.o: $(GNL_DIR)/%.c
 	@mkdir -p $(@D)
-	@$(CC) $(CFLAGS) -I$(INC) -I$(GNL_DIR) $(INCLUDES) -c $< -o $@
+	@$(CC) $(CFLAGS) -I$(INC) -I$(GNL_DIR) -c $< -o $@
 	@echo "\033[1;32mFile $@ created.\033[0m";
 
 clean:
@@ -66,7 +63,7 @@ clean:
 	@echo "\033[1;32mAll Done for clean.\033[0m"
 
 fclean: clean
-	@echo "Removing so_long..."
+	@echo "Removing pipex..."
 	@$(RM) $(NAME)
 	@echo "Removing libft.a..."
 	@$(RM) $(LIBFT)

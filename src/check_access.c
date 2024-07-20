@@ -6,11 +6,19 @@
 /*   By: asideris <asideris@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 14:16:51 by roko              #+#    #+#             */
-/*   Updated: 2024/07/18 18:57:42 by asideris         ###   ########.fr       */
+/*   Updated: 2024/07/20 14:36:37 by asideris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pipex.h"
+
+void	ft_error_exit(char *cmd_name)
+{
+	write(2, "zsh: command not found: ", 24);
+	write(2, cmd_name, ft_strlen(cmd_name));
+	write(2, "\n", 1);
+	exit(-1);
+}
 
 char	**ft_find_cmd(char **env)
 {
@@ -39,19 +47,6 @@ char	**ft_find_cmd(char **env)
 	return (split_paths);
 }
 
-void	ft_check_access(char **env, char *cmd)
-{
-	char	**all_paths;
-	char	**cmd_split;
-	char	*cmd_name;
-
-	cmd_split = ft_split(cmd, ' ');
-	cmd_name = cmd_split[0];
-	all_paths = ft_find_cmd(env);
-	if (ft_try_paths(all_paths, cmd_name) == 0)
-		ft_error_exit(cmd_name);
-}
-
 int	ft_try_paths(char **all_paths, char *cmd_name)
 {
 	int		i;
@@ -69,10 +64,15 @@ int	ft_try_paths(char **all_paths, char *cmd_name)
 	return (0);
 }
 
-void	ft_error_exit(char *cmd_name)
+void	ft_check_access(char **env, char *cmd)
 {
-	write(2, "zsh: command not found: ", 24);
-	write(2, cmd_name, strlen(cmd_name));
-	write(2, "\n", 1);
-	exit(-1);
+	char	**all_paths;
+	char	**cmd_split;
+	char	*cmd_name;
+
+	cmd_split = ft_split(cmd, ' ');
+	cmd_name = cmd_split[0];
+	all_paths = ft_find_cmd(env);
+	if (ft_try_paths(all_paths, cmd_name) == 0)
+		ft_error_exit(cmd_name);
 }

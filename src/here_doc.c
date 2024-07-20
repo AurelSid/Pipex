@@ -6,7 +6,7 @@
 /*   By: asideris <asideris@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 17:50:46 by roko              #+#    #+#             */
-/*   Updated: 2024/06/28 14:53:19 by asideris         ###   ########.fr       */
+/*   Updated: 2024/07/20 14:47:18 by asideris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,12 @@ void	ft_gnl_to_fd(char **argv, int *pipe_fd)
 	{
 		line = get_next_line(0);
 		if (line == NULL)
-		{
 			break ;
-		}
-		if (ft_strncmp(line, limiter, ft_strlen(limiter)) == 0)
+		if (ft_strlen(limiter) == 0 && line[0] == '\n')
+			return (free(line), exit(0));
+		if (ft_strlen(limiter) > 0 && ft_strncmp(line, limiter, ft_strlen(limiter)) == 0)
 		{
+			printf("found limiter");
 			free(line);
 			exit(0);
 		}

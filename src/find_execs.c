@@ -6,11 +6,24 @@
 /*   By: asideris <asideris@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 14:16:51 by roko              #+#    #+#             */
-/*   Updated: 2024/07/18 18:57:32 by asideris         ###   ########.fr       */
+/*   Updated: 2024/07/20 14:36:52 by asideris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pipex.h"
+
+void	ft_free_split(char **strs)
+{
+	int	i;
+
+	i = 0;
+	while (strs[i])
+	{
+		free(strs[i]);
+		i++;
+	}
+	free(strs);
+}
 
 char	**ft_find_path(char **env)
 {
@@ -56,11 +69,12 @@ char	*ft_get_exec(char **env, char *cmd)
 		cmd_path = ft_strjoin(all_paths[i], "/");
 		cmd_path = ft_strjoin(cmd_path, cmd_name);
 		if (execve(cmd_path, cmd_split, env) == -1)
-			printf("exe error");
+			printf("exe error: %s: %s\n", cmd, cmd_path);
 		else
 			printf("exe ok");
 		i++;
 	}
-	free(cmd_split);
+	ft_free_split(cmd_split);
+	ft_free_split(all_paths);
 	return (cmd_path);
 }
