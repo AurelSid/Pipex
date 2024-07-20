@@ -6,7 +6,7 @@
 /*   By: asideris <asideris@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 21:03:54 by roko              #+#    #+#             */
-/*   Updated: 2024/07/20 14:36:12 by asideris         ###   ########.fr       */
+/*   Updated: 2024/07/20 17:55:51 by asideris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_exec_pipe(char *argv, char **env)
 		close(pipe_fd[1]);
 		dup2(pipe_fd[0], 0);
 	}
-	wait(0);
+	// wait(0);
 }
 
 int	open_files(int argc, char **argv, int *infd, int *outfd)

@@ -1,0 +1,99 @@
+wfwef
+wefewf
+ewf
+dsdsf
+dsfds
+Process:         pipex [24130]
+Path:            /Volumes/VOLUME/*/pipex
+Load Address:    0x107169000
+Identifier:      pipex
+Version:         ???
+Code Type:       X86-64
+Parent Process:  zsh [20834]
+
+Date/Time:       2024-07-20 17:54:53.852 +0200
+Launch Time:     2024-07-20 17:54:49.986 +0200
+OS Version:      Mac OS X 10.15.7 (19H15)
+Report Version:  7
+Analysis Tool:   /usr/bin/leaks
+----
+
+leaks Report Version: 4.0
+Process 24130: 176 nodes malloced for 9 KB
+Process 24130: 20 leaks for 704 total leaked bytes.
+
+    20 (704 bytes) << TOTAL >>
+
+      10 (336 bytes) ROOT LEAK: 0x7fe08f5040a0 [80]
+         1 (64 bytes) 0x7fe08f5041b0 [64]  length: 63  "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+         1 (48 bytes) 0x7fe08f504110 [48]  length: 41  "/Users/asideris/asideris/homebrew/bin/cat"
+         1 (32 bytes) 0x7fe08f5040f0 [32]  length: 29  "/Users/asideris/.brew/bin/cat"
+         1 (32 bytes) 0x7fe08f504190 [32]  length: 16  "/usr/local/munki"
+         1 (16 bytes) 0x7fe08f504140 [16]  length: 12  "/usr/bin/cat"
+         1 (16 bytes) 0x7fe08f504150 [16]  length: 12  "/usr/bin/cat"
+         1 (16 bytes) 0x7fe08f504160 [16]  length: 8  "/bin/cat"
+         1 (16 bytes) 0x7fe08f504170 [16]  length: 9  "/usr/sbin"
+         1 (16 bytes) 0x7fe08f504180 [16]  length: 5  "/sbin"
+
+      8 (304 bytes) ROOT LEAK: 0x7fe08f504240 [80]
+         1 (64 bytes) 0x7fe08f504310 [64]  length: 63  "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+         1 (48 bytes) 0x7fe08f504290 [48]  length: 41  "/Users/asideris/asideris/homebrew/bin/cat"
+         1 (32 bytes) 0x7fe08f504220 [32]  length: 29  "/Users/asideris/.brew/bin/cat"
+         1 (32 bytes) 0x7fe08f5042f0 [32]  length: 16  "/usr/local/munki"
+         1 (16 bytes) 0x7fe08f5042c0 [16]  length: 8  "/bin/cat"
+         1 (16 bytes) 0x7fe08f5042d0 [16]  length: 9  "/usr/sbin"
+         1 (16 bytes) 0x7fe08f5042e0 [16]  length: 5  "/sbin"
+
+      1 (32 bytes) ROOT LEAK: 0x7fe08f504200 [32]  length: 18  "/usr/local/bin/cat"
+      1 (32 bytes) ROOT LEAK: 0x7fe08f504360 [32]  length: 18  "/usr/local/bin/cat"
+
+sfsdf
+Process:         pipex [24804]
+Path:            /Volumes/VOLUME/*/pipex
+Load Address:    0x10df33000
+Identifier:      pipex
+Version:         ???
+Code Type:       X86-64
+Parent Process:  zsh [20834]
+
+Date/Time:       2024-07-20 17:55:35.074 +0200
+Launch Time:     2024-07-20 17:55:31.498 +0200
+OS Version:      Mac OS X 10.15.7 (19H15)
+Report Version:  7
+Analysis Tool:   /usr/bin/leaks
+----
+
+leaks Report Version: 4.0
+Process 24804: 180 nodes malloced for 9 KB
+Process 24804: 24 leaks for 768 total leaked bytes.
+
+    24 (768 bytes) << TOTAL >>
+
+      10 (336 bytes) ROOT LEAK: 0x7fea455040a0 [80]
+         1 (64 bytes) 0x7fea455041b0 [64]  length: 63  "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+         1 (48 bytes) 0x7fea45504110 [48]  length: 41  "/Users/asideris/asideris/homebrew/bin/cat"
+         1 (32 bytes) 0x7fea455040f0 [32]  length: 29  "/Users/asideris/.brew/bin/cat"
+         1 (32 bytes) 0x7fea45504190 [32]  length: 16  "/usr/local/munki"
+         1 (16 bytes) 0x7fea45504140 [16]  length: 3  "cat"
+         1 (16 bytes) 0x7fea45504150 [16]  length: 12  "/usr/bin/cat"
+         1 (16 bytes) 0x7fea45504160 [16]  length: 8  "/bin/cat"
+         1 (16 bytes) 0x7fea45504170 [16]  length: 9  "/usr/sbin"
+         1 (16 bytes) 0x7fea45504180 [16]  length: 5  "/sbin"
+
+      9 (320 bytes) ROOT LEAK: 0x7fea45504240 [80]
+         1 (64 bytes) 0x7fea45504330 [64]  length: 63  "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+         1 (48 bytes) 0x7fea45504290 [48]  length: 41  "/Users/asideris/asideris/homebrew/bin/cat"
+         1 (32 bytes) 0x7fea45504220 [32]  length: 29  "/Users/asideris/.brew/bin/cat"
+         1 (32 bytes) 0x7fea45504310 [32]  length: 16  "/usr/local/munki"
+         1 (16 bytes) 0x7fea455042d0 [16]  length: 12  "/usr/bin/cat"
+         1 (16 bytes) 0x7fea455042e0 [16]  length: 8  "/bin/cat"
+         1 (16 bytes) 0x7fea455042f0 [16]  length: 9  "/usr/sbin"
+         1 (16 bytes) 0x7fea45504300 [16]  length: 5  "/sbin"
+
+      2 (32 bytes) ROOT LEAK: 0x7fea45504080 [16]
+         1 (16 bytes) 0x7fea45504090 [16]  length: 3  "cat"
+
+      1 (32 bytes) ROOT LEAK: 0x7fea45504200 [32]  length: 18  "/usr/local/bin/cat"
+      1 (32 bytes) ROOT LEAK: 0x7fea45504380 [32]  length: 18  "/usr/local/bin/cat"
+      1 (16 bytes) ROOT LEAK: 0x7fea455041f0 [16]
+

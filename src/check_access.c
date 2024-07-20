@@ -6,7 +6,7 @@
 /*   By: asideris <asideris@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 14:16:51 by roko              #+#    #+#             */
-/*   Updated: 2024/07/20 14:36:37 by asideris         ###   ########.fr       */
+/*   Updated: 2024/07/20 17:55:44 by asideris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ char	**ft_find_cmd(char **env)
 	}
 	return (split_paths);
 }
-
 int	ft_try_paths(char **all_paths, char *cmd_name)
 {
 	int		i;
@@ -74,5 +73,10 @@ void	ft_check_access(char **env, char *cmd)
 	cmd_name = cmd_split[0];
 	all_paths = ft_find_cmd(env);
 	if (ft_try_paths(all_paths, cmd_name) == 0)
+	{
+		ft_free_split(cmd_split);
 		ft_error_exit(cmd_name);
+	}
+	else
+		ft_free_split(cmd_split);
 }
